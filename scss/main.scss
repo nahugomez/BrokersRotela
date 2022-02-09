@@ -16,68 +16,98 @@ $theme-colors: (
     box-sizing: border-box;
 }
 
-/* -------------- SMALL -------------- */
-/* ========== MENU ============ */
-.navbar-brand-img{
-    width: 8rem;
+p {
+    margin-bottom: 7px;
 }
 
-/* ========== HEADER ============ */
+@mixin sizes($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin grid($row, $column, $rowg, $columng) {
+    display: grid;
+    grid-template-rows: $row;
+    grid-template-columns: $column;
+    grid-row-gap: $rowg;
+    grid-column-gap: $columng;
+}
+
+@mixin flex($dir, $justify, $align) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.card {
+    border: 2px solid rgb(202, 202, 202);
+    border-radius: 6px;
+}
+
+.title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.img {
+    @include sizes(100%, auto);
+    border-radius: 6px;
+}
+
+
+
+/* -------------- SMALL -------------- */
+
+/* ========== MENU ============ */
+.navbar-brand-img{
+    @include sizes(128px, auto);
+}
+
+/* ========== HEADER (INDEX) ============ */
 .header {
-    width: 100%;
-    height: 90vh;
+    @include sizes(100%, 90vh);
     background-image: url(../img/header.jpg);
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(row, center, center);
 
     &-content {
-        background-color: #f8f9fa;
-        width: auto;
-        border-radius: 10px;
-        padding: 1.25rem;
+        @include sizes(auto, auto);
         text-align: center;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
     }
 
     &-title {
-        display: inline-block;
-        text-transform: uppercase;
+        @extend .title;
     }
 
 }
 
 
 /* ========= SERVICIOS (INDEX) ========= */
-
-
 .serv {
     margin: 30px 0;
 
     &-cards {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-row-gap: 0.625rem;
+        @include grid(1fr 1fr 1fr, 1fr, 10px, 0);
     }
 
     &-card {
-        border: 2px solid #000;
-        border-radius: 3px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @extend .card;
+        @include flex(column, center, center);
         text-align: center;
         padding: 10px;
     }
 
     &-card-img {
-        width: 8rem;
+        width: 128px;
     }
 
     &-card-title {
-        font-weight: 700;
+        @extend .title;
         margin-bottom: 0;
     }
 
@@ -92,28 +122,21 @@ $theme-colors: (
     padding: 15px 0;
 
     &-title {
+        @extend .title;
         color: #fff;
-        text-align: center;
-        font-weight: 700;
     }
 
     &-contents {
-        width: 100%;
-        display: grid;
-        grid-template-rows: auto auto auto auto;
-        grid-template-columns: 1fr;
-        grid-row-gap: 20px;
+        @include grid(auto auto auto auto, 1fr, 20px, 0px);
     }
 
     &-content {
         color: #fff;
-        display: flex;
-        flex-direction: column;
+        @include flex(column, flex-start, stretch);
     }
 
     &-img {
-        width: 100%;
-        border-radius: 5px;
+        @extend .img;
     }
 }
 
@@ -122,36 +145,27 @@ $theme-colors: (
     margin: 30px 0;
 
     &-customers {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-        grid-row-gap: 15px;
+        @include grid(auto auto auto, 1fr, 15px, 0px)
     }
 
     &-title {
-        text-align: center;
-        text-transform: uppercase;
+        @extend .title;
     }
 
     &-customer {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        border: 2px solid #000;
-        border-radius: 5px;
+        @include flex(column, center, center);
+        @extend .card;
         padding: 10px;
     }
 
     &-customer-name {
-        font-weight: 700;
-        margin-bottom: 0;
+        @extend .title;
         font-size: 24px;
-        text-transform: uppercase;
+        margin-bottom: 0;
     }
 
     &-customer-img {
-        width: 100%;
-        border-radius: 5px;
+        @extend .img;
     }
 
 }
@@ -162,20 +176,15 @@ $theme-colors: (
 }
 
 .insurers-title {
-    text-align: center;
-    text-transform: uppercase;
+    @extend .title;
 }
 
 .insurers-grid {
-    display: grid;
-    grid-template-rows: auto auto auto;
-    grid-template-columns: 1fr;
-    grid-row-gap: 20px;
-
+    @include grid(auto auto auto, 1fr, 20px, 0);
 }
 
 .insurers-img {
-    width: 100%;
+    @extend .img;
 }
 
 
@@ -184,25 +193,55 @@ $theme-colors: (
     width: 64px;
 }
 
+/* ========= NOSOTROS ========= */
+.us {
+    &-title {
+        @extend .title;
+        background-color: $primary;
+        color: #FFF;
+        border-radius: 3px;
+        padding: 5px 0;
+        margin-top: 30px;
+    }
+
+    &-cards {
+        @include grid(auto auto, 1fr, 20px, 0px);
+        margin-bottom: 30px;
+    }
+
+    &-card {
+        @extend .card;
+    }
+
+    &-card-img {
+        @include sizes(100%, auto);
+    }
+
+    &-card-text {
+        margin-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    &-button {
+        margin-bottom: 20px;
+    }
+}
+
 /* ========= SERVICIOS ========= */
 .services {
     margin: 30px 0;
 
     &-title {
-        text-transform: uppercase;
-        text-align: center;
+        @extend .title;
     }
     
     &-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto auto auto;
-        grid-row-gap: 10px;
+        @include grid(repeat(6, auto), 1fr, 10px, 0);
     }
     
     &-content-title {
-        font-weight: 700;
-        text-align: center;
+        @extend .title;
     }
     
     &-content-text {
@@ -210,76 +249,109 @@ $theme-colors: (
     }
     
     &-img {
-        width: 100%;
-        border-radius: 5px;
+        @extend .img;
     }
     
     .btn-vida {
-        width: 100%;
+        @include sizes(100%, auto);
     }
 }
 
+/* ========= FAQS ========= */
+.faqs {
+    margin-bottom: 30px;
+
+    &-title {
+        @extend .title;
+        background-color: $primary;
+        color: #FFF;
+        border-radius: 3px;
+        padding: 5px 0;
+        margin-top: 30px;
+    }
+}
+
+/* ========= CONTACTO ========= */
+.contact {
+    margin-bottom: 30px;
+
+    &-title {
+        @extend .title;
+        background-color: $primary;
+        color: #FFF;
+        border-radius: 3px;
+        padding: 5px 0;
+        margin-top: 30px;
+    }
+    
+    &-grid {
+        @include grid(auto auto auto auto, 1fr, 20px, 0px)
+    }
+
+    &-img {
+        @include sizes(100%, auto);
+        border-radius: 6px;
+    }
 
 
-
+}
 
 /* -------------- MEDIUM -------------- */
 @media (min-width: 768px) {
 
     /* ========= REFERENCIAS (INDEX) ========= */
     .references-customers {
-        grid-template-columns: 30% 30% 30%;
-        grid-template-rows: 1fr;
-        grid-column-gap: 20px;
+        @include grid(1fr, 30% 30% 30%, 0px, 20px);
         justify-content: center;
     }
 
     /* ========= ASEGURADORAS (INDEX) ========= */
     .insurers-grid{
-        grid-template-columns: 30% 30% 30%;
-        grid-template-rows: 1fr;
-        grid-row-gap: 20px;
+        @include grid(1fr, 30% 30% 30%, 0px, 20px);
         justify-content: center;
     }
 }
-
-
-
-
 
 /* -------------- LARGE -------------- */
 @media (min-width: 992px) {
 
     /* ========= SERVICIOS (INDEX) ========= */
     .serv-cards {
-        grid-template-columns: 30% 30% 30%;
-        grid-template-rows: 1fr;
-        grid-column-gap: 20px;
+        @include grid(1fr, 30% 30% 30%, 0px, 20px);
         justify-content: center;
     }
 
     /* ========= INFORMACIÓN (INDEX) ========= */
     .information-contents {
-        grid-template-columns: auto auto;
-        grid-template-rows: auto auto;
+        @include grid(auto auto, auto auto, 20px, 20px);
         justify-content: center;
         align-items: center;
-        grid-column-gap: 20px;
     }
 
     /* ========= SERVICIOS ========= */
     .services-grid {
-        grid-template-columns: 45% 45%;
-        grid-template-rows:auto auto auto auto;
-        grid-column-gap: 20px;
-        grid-row-gap: 30px;
+        @include grid(auto auto auto auto, 45% 45%, 30px, 20px);
         justify-content: center;
     }
 
     .services-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @include flex(column, center, stretch);
     }
 
+    /* ========= NOSOTROS ========= */
+    .us {
+        &-cards {
+            @include grid(1fr, 48% 48%, 0px, 20px);
+            justify-content: center;
+        }
+    }
+    /* ========= CONTACTO ========= */
+    .contact{
+        &-grid {
+            @include grid(auto auto, 45% 45%, 20px, 20px);
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    
 }

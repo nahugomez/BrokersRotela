@@ -3023,7 +3023,7 @@ textarea.form-control-lg {
   .navbar-dark .navbar-text a:focus {
     color: #fff; }
 
-.card {
+.card, .serv-card, .references-customer, .us-card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -3033,22 +3033,25 @@ textarea.form-control-lg {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }
-  .card > hr {
+  .card > hr, .serv-card > hr, .references-customer > hr, .us-card > hr {
     margin-right: 0;
     margin-left: 0; }
-  .card > .list-group {
+  .card > .list-group, .serv-card > .list-group, .references-customer > .list-group, .us-card > .list-group {
     border-top: inherit;
     border-bottom: inherit; }
-    .card > .list-group:first-child {
+    .card > .list-group:first-child, .serv-card > .list-group:first-child, .references-customer > .list-group:first-child, .us-card > .list-group:first-child {
       border-top-width: 0;
       border-top-left-radius: calc(0.25rem - 1px);
       border-top-right-radius: calc(0.25rem - 1px); }
-    .card > .list-group:last-child {
+    .card > .list-group:last-child, .serv-card > .list-group:last-child, .references-customer > .list-group:last-child, .us-card > .list-group:last-child {
       border-bottom-width: 0;
       border-bottom-right-radius: calc(0.25rem - 1px);
       border-bottom-left-radius: calc(0.25rem - 1px); }
-  .card > .card-header + .list-group,
-  .card > .list-group + .card-footer {
+  .card > .card-header + .list-group, .serv-card > .card-header + .list-group, .references-customer > .card-header + .list-group, .us-card > .card-header + .list-group,
+  .card > .list-group + .card-footer,
+  .serv-card > .list-group + .card-footer,
+  .references-customer > .list-group + .card-footer,
+  .us-card > .list-group + .card-footer {
     border-top: 0; }
 
 .card-body {
@@ -3117,36 +3120,48 @@ textarea.form-control-lg {
   border-bottom-right-radius: calc(0.25rem - 1px);
   border-bottom-left-radius: calc(0.25rem - 1px); }
 
-.card-group > .card {
+.card-group > .card, .card-group > .serv-card, .card-group > .references-customer, .card-group > .us-card {
   margin-bottom: 0.75rem; }
 
 @media (min-width: 576px) {
   .card-group {
     display: flex;
     flex-flow: row wrap; }
-    .card-group > .card {
+    .card-group > .card, .card-group > .serv-card, .card-group > .references-customer, .card-group > .us-card {
       flex: 1 0 0%;
       margin-bottom: 0; }
-      .card-group > .card + .card {
+      .card-group > .card + .card, .card-group > .serv-card + .card, .card-group > .references-customer + .card, .card-group > .us-card + .card, .card-group > .card + .serv-card, .card-group > .serv-card + .serv-card, .card-group > .references-customer + .serv-card, .card-group > .us-card + .serv-card, .card-group > .card + .references-customer, .card-group > .serv-card + .references-customer, .card-group > .references-customer + .references-customer, .card-group > .us-card + .references-customer, .card-group > .card + .us-card, .card-group > .serv-card + .us-card, .card-group > .references-customer + .us-card, .card-group > .us-card + .us-card {
         margin-left: 0;
         border-left: 0; }
-      .card-group > .card:not(:last-child) {
+      .card-group > .card:not(:last-child), .card-group > .serv-card:not(:last-child), .card-group > .references-customer:not(:last-child), .card-group > .us-card:not(:last-child) {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0; }
-        .card-group > .card:not(:last-child) .card-img-top,
-        .card-group > .card:not(:last-child) .card-header {
+        .card-group > .card:not(:last-child) .card-img-top, .card-group > .serv-card:not(:last-child) .card-img-top, .card-group > .references-customer:not(:last-child) .card-img-top, .card-group > .us-card:not(:last-child) .card-img-top,
+        .card-group > .card:not(:last-child) .card-header,
+        .card-group > .serv-card:not(:last-child) .card-header,
+        .card-group > .references-customer:not(:last-child) .card-header,
+        .card-group > .us-card:not(:last-child) .card-header {
           border-top-right-radius: 0; }
-        .card-group > .card:not(:last-child) .card-img-bottom,
-        .card-group > .card:not(:last-child) .card-footer {
+        .card-group > .card:not(:last-child) .card-img-bottom, .card-group > .serv-card:not(:last-child) .card-img-bottom, .card-group > .references-customer:not(:last-child) .card-img-bottom, .card-group > .us-card:not(:last-child) .card-img-bottom,
+        .card-group > .card:not(:last-child) .card-footer,
+        .card-group > .serv-card:not(:last-child) .card-footer,
+        .card-group > .references-customer:not(:last-child) .card-footer,
+        .card-group > .us-card:not(:last-child) .card-footer {
           border-bottom-right-radius: 0; }
-      .card-group > .card:not(:first-child) {
+      .card-group > .card:not(:first-child), .card-group > .serv-card:not(:first-child), .card-group > .references-customer:not(:first-child), .card-group > .us-card:not(:first-child) {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0; }
-        .card-group > .card:not(:first-child) .card-img-top,
-        .card-group > .card:not(:first-child) .card-header {
+        .card-group > .card:not(:first-child) .card-img-top, .card-group > .serv-card:not(:first-child) .card-img-top, .card-group > .references-customer:not(:first-child) .card-img-top, .card-group > .us-card:not(:first-child) .card-img-top,
+        .card-group > .card:not(:first-child) .card-header,
+        .card-group > .serv-card:not(:first-child) .card-header,
+        .card-group > .references-customer:not(:first-child) .card-header,
+        .card-group > .us-card:not(:first-child) .card-header {
           border-top-left-radius: 0; }
-        .card-group > .card:not(:first-child) .card-img-bottom,
-        .card-group > .card:not(:first-child) .card-footer {
+        .card-group > .card:not(:first-child) .card-img-bottom, .card-group > .serv-card:not(:first-child) .card-img-bottom, .card-group > .references-customer:not(:first-child) .card-img-bottom, .card-group > .us-card:not(:first-child) .card-img-bottom,
+        .card-group > .card:not(:first-child) .card-footer,
+        .card-group > .serv-card:not(:first-child) .card-footer,
+        .card-group > .references-customer:not(:first-child) .card-footer,
+        .card-group > .us-card:not(:first-child) .card-footer {
           border-bottom-left-radius: 0; } }
 
 .accordion-button {
@@ -7223,41 +7238,57 @@ textarea.form-control-lg {
   padding: 0;
   box-sizing: border-box; }
 
+p {
+  margin-bottom: 7px; }
+
+.card, .serv-card, .references-customer, .us-card {
+  border: 2px solid #cacaca;
+  border-radius: 6px; }
+
+.title, .header-title, .serv-card-title, .information-title, .references-title, .references-customer-name, .insurers-title, .us-title, .services-title, .services-content-title, .faqs-title, .contact-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700; }
+
+.img, .information-img, .references-customer-img, .insurers-img, .services-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px; }
+
 /* -------------- SMALL -------------- */
 /* ========== MENU ============ */
 .navbar-brand-img {
-  width: 8rem; }
+  width: 128px;
+  height: auto; }
 
-/* ========== HEADER ============ */
+/* ========== HEADER (INDEX) ============ */
 .header {
   width: 100%;
   height: 90vh;
   background-image: url(../img/header.jpg);
   background-size: cover;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center; }
   .header-content {
-    background-color: #f8f9fa;
     width: auto;
+    height: auto;
+    text-align: center;
+    background-color: #f8f9fa;
     border-radius: 10px;
-    padding: 1.25rem;
-    text-align: center; }
-  .header-title {
-    display: inline-block;
-    text-transform: uppercase; }
+    padding: 20px; }
 
 /* ========= SERVICIOS (INDEX) ========= */
 .serv {
   margin: 30px 0; }
   .serv-cards {
     display: grid;
-    grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    grid-row-gap: 0.625rem; }
+    grid-template-columns: 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 0; }
   .serv-card {
-    border: 2px solid #000;
-    border-radius: 3px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7265,9 +7296,8 @@ textarea.form-control-lg {
     text-align: center;
     padding: 10px; }
   .serv-card-img {
-    width: 8rem; }
+    width: 128px; }
   .serv-card-title {
-    font-weight: 700;
     margin-bottom: 0; }
   .serv-card-text {
     margin-bottom: 0; }
@@ -7277,142 +7307,192 @@ textarea.form-control-lg {
   background-color: #24242c;
   padding: 15px 0; }
   .information-title {
-    color: #fff;
-    text-align: center;
-    font-weight: 700; }
+    color: #fff; }
   .information-contents {
-    width: 100%;
     display: grid;
     grid-template-rows: auto auto auto auto;
     grid-template-columns: 1fr;
-    grid-row-gap: 20px; }
+    grid-row-gap: 20px;
+    grid-column-gap: 0px; }
   .information-content {
     color: #fff;
     display: flex;
-    flex-direction: column; }
-  .information-img {
-    width: 100%;
-    border-radius: 5px; }
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch; }
 
 /* ========= REFERENCIAS (INDEX) ========= */
 .references {
   margin: 30px 0; }
-
-.references-customers {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto;
-  grid-row-gap: 15px; }
-
-.references-title {
-  text-align: center;
-  text-transform: uppercase; }
-
-.references-customer {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  border: 2px solid #000;
-  border-radius: 5px;
-  padding: 10px; }
-
-.references-customer-name {
-  font-weight: 700;
-  margin-bottom: 0;
-  font-size: 24px;
-  text-transform: uppercase; }
-
-.references-customer-img {
-  width: 100%;
-  border-radius: 5px; }
+  .references-customers {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr;
+    grid-row-gap: 15px;
+    grid-column-gap: 0px; }
+  .references-customer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; }
+  .references-customer-name {
+    font-size: 24px;
+    margin-bottom: 0; }
 
 /* ========= ASEGURADORAS (INDEX) ========= */
 .insurers {
   margin: 30px 0; }
 
-.insurers-title {
-  text-align: center;
-  text-transform: uppercase; }
-
 .insurers-grid {
   display: grid;
   grid-template-rows: auto auto auto;
   grid-template-columns: 1fr;
-  grid-row-gap: 20px; }
-
-.insurers-img {
-  width: 100%; }
+  grid-row-gap: 20px;
+  grid-column-gap: 0; }
 
 /* ========= FOOTER ========= */
 .img-social {
   width: 64px; }
 
+/* ========= NOSOTROS ========= */
+.us-title {
+  background-color: #cc343c;
+  color: #FFF;
+  border-radius: 3px;
+  padding: 5px 0;
+  margin-top: 30px; }
+
+.us-cards {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
+  grid-row-gap: 20px;
+  grid-column-gap: 0px;
+  margin-bottom: 30px; }
+
+.us-card-img {
+  width: 100%;
+  height: auto; }
+
+.us-card-text {
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.us-button {
+  margin-bottom: 20px; }
+
 /* ========= SERVICIOS ========= */
 .services {
   margin: 30px 0; }
+  .services-grid {
+    display: grid;
+    grid-template-rows: repeat(6, auto);
+    grid-template-columns: 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 0; }
+  .services-content-text {
+    margin-bottom: 10px; }
+  .services .btn-vida {
+    width: 100%;
+    height: auto; }
 
-.services-title {
-  text-transform: uppercase;
-  text-align: center; }
+/* ========= FAQS ========= */
+.faqs {
+  margin-bottom: 30px; }
+  .faqs-title {
+    background-color: #cc343c;
+    color: #FFF;
+    border-radius: 3px;
+    padding: 5px 0;
+    margin-top: 30px; }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto auto auto auto;
-  grid-row-gap: 10px; }
-
-.services-content-title {
-  font-weight: 700;
-  text-align: center; }
-
-.services-content-text {
-  margin-bottom: 10px; }
-
-.services-img {
-  width: 100%;
-  border-radius: 5px; }
-
-.btn-vida {
-  width: 100%; }
+/* ========= CONTACTO ========= */
+.contact {
+  margin-bottom: 30px; }
+  .contact-title {
+    background-color: #cc343c;
+    color: #FFF;
+    border-radius: 3px;
+    padding: 5px 0;
+    margin-top: 30px; }
+  .contact-grid {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr;
+    grid-row-gap: 20px;
+    grid-column-gap: 0px; }
+  .contact-img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px; }
 
 /* -------------- MEDIUM -------------- */
 @media (min-width: 768px) {
   /* ========= REFERENCIAS (INDEX) ========= */
   .references-customers {
-    grid-template-columns: 30% 30% 30%;
+    display: grid;
     grid-template-rows: 1fr;
+    grid-template-columns: 30% 30% 30%;
+    grid-row-gap: 0px;
     grid-column-gap: 20px;
     justify-content: center; }
   /* ========= ASEGURADORAS (INDEX) ========= */
   .insurers-grid {
-    grid-template-columns: 30% 30% 30%;
+    display: grid;
     grid-template-rows: 1fr;
-    grid-row-gap: 20px;
+    grid-template-columns: 30% 30% 30%;
+    grid-row-gap: 0px;
+    grid-column-gap: 20px;
     justify-content: center; } }
 
 /* -------------- LARGE -------------- */
 @media (min-width: 992px) {
   /* ========= SERVICIOS (INDEX) ========= */
   .serv-cards {
-    grid-template-columns: 30% 30% 30%;
+    display: grid;
     grid-template-rows: 1fr;
+    grid-template-columns: 30% 30% 30%;
+    grid-row-gap: 0px;
     grid-column-gap: 20px;
     justify-content: center; }
   /* ========= INFORMACIÓN (INDEX) ========= */
   .information-contents {
-    grid-template-columns: auto auto;
+    display: grid;
     grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
     justify-content: center;
-    align-items: center;
-    grid-column-gap: 20px; }
+    align-items: center; }
   /* ========= SERVICIOS ========= */
   .services-grid {
-    grid-template-columns: 45% 45%;
+    display: grid;
     grid-template-rows: auto auto auto auto;
-    grid-column-gap: 20px;
+    grid-template-columns: 45% 45%;
     grid-row-gap: 30px;
+    grid-column-gap: 20px;
     justify-content: center; }
   .services-content {
     display: flex;
     flex-direction: column;
-    justify-content: center; } }
+    justify-content: center;
+    align-items: stretch; }
+  /* ========= NOSOTROS ========= */
+  .us-cards {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 48% 48%;
+    grid-row-gap: 0px;
+    grid-column-gap: 20px;
+    justify-content: center; }
+  /* ========= CONTACTO ========= */
+  .contact-grid {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 45% 45%;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    justify-content: center;
+    align-items: center; } }
