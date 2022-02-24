@@ -7355,6 +7355,9 @@ p {
 .img-social {
   width: 64px; }
 
+.img-social:hover {
+  opacity: 0.3; }
+
 /* ========= NOSOTROS ========= */
 .us-title {
   background-color: #cc343c;

@@ -9,3 +9,8 @@ Página Web para el curso de desarrollo de web de CODERHOUSE
 - Se aplicó el maquetado con GRID y Flexbox en todas las páginas
 - Se conservó Bootstrap para el Menú, Footer, y los botones (Con colores correspondientes a la marca)
 - Se realizaron practicas correspondientes al SEO del sitio web
+
+*V1.2*:
+- Se remplazaron los Lorems por el texto correspondiente de cada página
+- Se linkearon las redes sociales (Exceptuando LinkedIn, todavía no creada)
+
