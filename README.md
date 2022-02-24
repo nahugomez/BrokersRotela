@@ -13,4 +13,5 @@ Página Web para el curso de desarrollo de web de CODERHOUSE
 *V1.2*:
 - Se remplazaron los Lorems por el texto correspondiente de cada página
 - Se linkearon las redes sociales (Exceptuando LinkedIn, todavía no creada)
-
+*V1.2.1*:
+- Favicon aplicado a todas las páginas
